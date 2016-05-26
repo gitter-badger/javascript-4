@@ -1,0 +1,24 @@
+{
+  "name": "delete",
+  "homepage": "https://github.com/liberaldart/javascript",
+  "authors": [
+    "aksinghdce <aksinghdce@gmail.com>"
+  ],
+  "description": "sdckndsnvc",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "sdvdfv"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4"
+  }
+}

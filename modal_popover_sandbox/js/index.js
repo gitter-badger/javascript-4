@@ -5,11 +5,13 @@
   var set_popover_style = function () {
     $('#dialog').css('overflow-y', 'auto');
     $('#dialog').css('overflow-x', 'auto');
+    $('#external-content').css('overflow', 'auto');
     $('#dialog').css('position', 'relative');
     $('#dialog').css('border', '3px solid #8AC007');
     $('#dialog').css('top', '0px');
     $('#dialog').css('left', '0px');
     $('#dialog').css('max-width', '1000px');
+    $('#dialog').css('max-height', '90%');
   }
 
   var activate_textbox = function () {
