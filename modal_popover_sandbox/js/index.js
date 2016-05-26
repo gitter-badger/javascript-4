@@ -17,7 +17,12 @@
   $('#dialog').on('refresh-content', function () {
     console.log('refresh called');
     $('#dialog').modalPopover('hide');
+
     $('#dialog').modalPopover('show');
+
+    $('#dialog').css('width', '100%');
+    $('#dialog').css('overflow-y', 'auto');
+    $('#dialog').css('overflow-x', 'auto');
   });
 
   $(document).on('ready', function() {
