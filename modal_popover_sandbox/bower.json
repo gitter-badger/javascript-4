@@ -1,0 +1,29 @@
+{
+  "name": "modal_popover_sandbox",
+  "homepage": "https://github.com/liberaldart/javascript",
+  "authors": [
+    "aksinghdce <aksinghdce@gmail.com>"
+  ],
+  "description": "A sandbox to try d3 on modal popover of bootstrap",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "bootstrap",
+    "d3",
+    "modalpopover"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-popover-x": "^1.4.1",
+    "d3": "^3.5.17",
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6"
+  }
+}

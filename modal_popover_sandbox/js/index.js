@@ -1,18 +1,22 @@
-$(document).on('ready', function() {
+( function ($) {
 
+  var activate_textbox = function () {
+    $('#the-text').on('focus', function () {
+      var options = {
+          target: "#external-content",
+          remote: "external.html",
+          placement: "right",
+          backdrop: "false",
+          keyboard: "true"
+      };
+      $('#dialog').modalPopover(options);
+      $('#dialog').modalPopover('show');
+    });
+  }
 
+  $(document).on('ready', function() {
+    activate_textbox();
 
-  $('#the-text').on('focus', function () {
-    var options = {
-        target: "#external-content",
-        remote: "external.html",
-        placement: "right",
-        backdrop: "false",
-        keyboard: "true"
-    };
-    $('#dialog').modalPopover(options);
-    $('#dialog').modalPopover('show');
   });
 
-  
-});
+})(window.jQuery);

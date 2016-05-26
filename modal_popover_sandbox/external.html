@@ -1,27 +1,14 @@
-<html>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+text {
+  font: 10px sans-serif;
+}
+
+</style>
 <body>
-This content was loaded from an external html file
-<a id="data-collector" class="btn btn-primary btn-block">load data</a>
-<div id="data"></div>
-<script type="text/javascript">
-$('#data-collector').on('click', function () {
-  $.getJSON(
-    "https://en.wikipedia.org/w/api.php?action=query&format=json&titles=gita&callback=?",
-function(){
-  console.log("done");
-})
-.done(function(data){
-  console.log(data);
-})
-.fail(function(error){
-  console.error(error);
-})
-.always(function(){
-  console.log("called");
-});
-
-});
-
-</script>
+  <button id="bubble-data" class="btn btn-primary btn-block">Get Bubble Chart</button>
+<script src="bower_components/d3/d3.min.js"></script>
+<script src="js/external.js"></script>
 </body>
-</html>
