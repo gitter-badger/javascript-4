@@ -59,6 +59,7 @@
     if(! bubble_data_loaded){
         get_bubble_data();
         bubble_data_loaded = true;
+        $('#dialog').trigger('refresh-content');
     }
 
   });

@@ -14,6 +14,12 @@
     });
   }
 
+  $('#dialog').on('refresh-content', function () {
+    console.log('refresh called');
+    $('#dialog').modalPopover('hide');
+    $('#dialog').modalPopover('show');
+  });
+
   $(document).on('ready', function() {
     activate_textbox();
 
