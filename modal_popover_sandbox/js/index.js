@@ -7,9 +7,9 @@
     $('#dialog').css('overflow-x', 'auto');
     $('#dialog').css('position', 'relative');
     $('#dialog').css('border', '3px solid #8AC007');
-    $('#dialog').css('top', '-25px');
-    $('#dialog').css('left', '150px');
-
+    $('#dialog').css('top', '0px');
+    $('#dialog').css('left', '0px');
+    $('#dialog').css('max-width', '1000px');
   }
 
   var activate_textbox = function () {
