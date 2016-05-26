@@ -1,4 +1,7 @@
 $(document).on('ready', function() {
+
+
+
   $('#the-text').on('focus', function () {
     var options = {
         target: "#external-content",
@@ -11,4 +14,5 @@ $(document).on('ready', function() {
     $('#dialog').modalPopover('show');
   });
 
+  
 });

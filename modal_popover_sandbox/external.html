@@ -5,8 +5,23 @@ This content was loaded from an external html file
 <div id="data"></div>
 <script type="text/javascript">
 $('#data-collector').on('click', function () {
-  $('#data').html("loading d3.js charts here (dummy, no content will actually load)");
+  $.getJSON(
+    "https://en.wikipedia.org/w/api.php?action=query&format=json&titles=gita&callback=?",
+function(){
+  console.log("done");
+})
+.done(function(data){
+  console.log(data);
+})
+.fail(function(error){
+  console.error(error);
+})
+.always(function(){
+  console.log("called");
 });
+
+});
+
 </script>
 </body>
 </html>
