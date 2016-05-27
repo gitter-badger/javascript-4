@@ -7,6 +7,8 @@ A bunch of code that I have been writing while practicing JavaScript
     ~~configured to open local file without CORS exception:~~
     ~~In MAC:~~
     ~~open /Applications/Google\ Chrome.app --args --allow-file-access-from-files~~
+
+    Better to run in an nodejs express server
     
     Run the app with 
     ```node app.js```
