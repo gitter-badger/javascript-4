@@ -55,13 +55,11 @@
   };
 
   var bubble_data_loaded = false;
-  $("#bubble-data").on('click', function(){
+
     if(! bubble_data_loaded){
         get_bubble_data();
         bubble_data_loaded = true;
         $('#dialog').trigger('refresh-content');
     }
-
-  });
 
 } )(window.jQuery);

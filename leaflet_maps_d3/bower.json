@@ -1,0 +1,22 @@
+{
+  "name": "leaflet_maps_d3",
+  "homepage": "https://github.com/liberaldart/javascript",
+  "authors": [
+    "aksinghdce <aksinghdce@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leaflet": "leaflet-dist#^0.7.2",
+    "d3": "^3.5.17"
+  }
+}

@@ -16,6 +16,11 @@ app.get('/external.html', function(req, res) {
     res.sendFile(path.join(__dirname + '/external.html'));
 });
 
+app.get('/map.html', function(req, res) {
+    res.sendFile(path.join(__dirname + '/map.html'));
+});
+
+
 // app.get('/js/app.js',function(req,res){
 //     res.sendFile(path.join(__dirname + '/js/app.js'));
 //Express Middleware for serving static files
