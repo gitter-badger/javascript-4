@@ -1,0 +1,33 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "some code I have been writing while practicing javascript",
+  "main": "caesars_cipher.js",
+  "scripts": {
+    "test": "mocha -R tap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liberaldart/javascript.git"
+  },
+  "keywords": [
+    "javascript",
+    "node.js",
+    "\"functional",
+    "programming\"",
+    "functional",
+    "programming",
+    "liberaldart",
+    "freecodecamp"
+  ],
+  "author": "Amit Kumar Singh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liberaldart/javascript/issues"
+  },
+  "homepage": "https://github.com/liberaldart/javascript#readme",
+  "dependencies": {
+    "jquery": "2.2.2",
+    "jsdom": "8.2.0"
+  }
+}
