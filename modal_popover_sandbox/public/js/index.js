@@ -55,7 +55,7 @@
       };
       $('#dialog2').modalPopover(options);
       $('#dialog2').modalPopover('show');
-      set_popover_style();
+      set_popover_style2();
 
     });
   }
