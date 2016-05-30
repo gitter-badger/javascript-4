@@ -38,6 +38,7 @@
       $('#dialog').modalPopover(options);
       $('#dialog').modalPopover('show');
       set_popover_style();
+
     });
   }
 
@@ -55,6 +56,7 @@
       $('#dialog2').modalPopover(options);
       $('#dialog2').modalPopover('show');
       set_popover_style();
+
     });
   }
 
@@ -78,11 +80,22 @@
 
   });
 
+  $('#the-text').on("bubble-selected", function(event, data) {
+    console.log(data);
+    var option = $('<option>')
+    .attr('selected', 'selected')
+    .attr('value', data)
+    .text(data);
+    $('#the-text').append(option);
+  });
 
   $(document).on('ready', function() {
 
     activate_textbox();
     activate_textbox2();
+    $('body').css('overflow-x', 'auto');
+    $('body').css('overflow-y', 'auto');
+
   });
 
 })(window.jQuery);

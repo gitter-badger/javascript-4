@@ -31,7 +31,9 @@
       node.append("circle")
           .attr("r", function(d) { return d.r; })
           .style("fill", function(d) { return color(d.packageName); })
-          .on("click", function(d) {alert('on click' + d.className); });
+          .on("click", function(d) {
+            $('#the-text').trigger('bubble-selected', [d.className]);
+           });
 
       node.append("text")
           .attr("dy", ".3em")
