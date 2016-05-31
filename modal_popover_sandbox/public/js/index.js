@@ -26,7 +26,7 @@
 
 
   var activate_textbox = function () {
-    $('#the-text').on('focus', function () {
+    $('#the-text').on('select2:open', function () {
 
       var options = {
           target: "#external-content",
@@ -44,7 +44,7 @@
 
 
   var activate_textbox2 = function () {
-    $('#the-text2').on('focus', function () {
+    $('#the-text2').on('select2:open', function () {
 
       var options = {
           target: "#external-content",
@@ -93,6 +93,10 @@
 
     activate_textbox();
     activate_textbox2();
+    $('select').select2({
+      tags: true,
+      tokenSeparators: [',', ' ']
+    });
     $('body').css('overflow-x', 'auto');
     $('body').css('overflow-y', 'auto');
 
