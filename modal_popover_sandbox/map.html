@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <style>
-            /*#map {
-            width: 960px;
+            #map {
             height: 500px;
-            }*/
+            }
         </style>
     </head>
     <body>
         <p id="map"></p>
         <script src="public/bower_components/d3/d3.min.js"></script>
         <script src="public/bower_components/leaflet/leaflet.js"></script>
+        <script src="public/data/us-states.js"></script>
         <script>
-            var map = new L.Map("map", {center: [37.8, -96.9], zoom: 4})
-            .addLayer(new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"));
+
+            var mapboxAccessToken =
+              "pk.eyJ1IjoiYWtzaW5naGRjZSIsImEiOiJjaW91d2UyaXYwMHVmdGhtNGx3cnV3cTVyIn0.6t16sPIKipeCCeV0hfegew";
+            // var map = new L.Map("map", {center: [37.8, -96.9], zoom: 4})
+            // initialize the map on the "map" div with a given center and zoom
+var map = L.map('map', {
+    center: [37.8, -96],
+    zoom: 8
+});
+            // .addLayer(new L.TileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' +
+            // mapboxAccessToken));
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mapboxAccessToken,
+            {
+              id: 'mapbox.light',
+              attribution:  '&copy; <a href="https://liberaldart.com">LiberalDart</a> contributors'
+            }).addTo(map);
+
+
+            L.geoJson(statesData).addTo(map);
 
             var svg = d3.select(map.getPanes().overlayPane).append("svg"),
             g = svg.append("g").attr("class", "leaflet-zoom-hide");
@@ -54,6 +72,19 @@
             this.stream.point(point.x, point.y);
             }
             });
+
+
+            // var mapboxAccessToken =
+            // "pk.eyJ1IjoiYWtzaW5naGRjZSIsImEiOiJjaW91d2UyaXYwMHVmdGhtNGx3cnV3cTVyIn0.6t16sPIKipeCCeV0hfegew";
+            //
+            // var map = L.map('map').setView([37.8, -96], 4);
+            //
+            // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mapboxAccessToken, {
+            //   id: 'mapbox.light',
+            //   attribution: ...
+            // }).addTo(map);
+
+
         </script>
     </body>
 </html>

@@ -28,6 +28,7 @@
   var activate_textbox = function () {
     $('#the-text').on('select2:open', function () {
 
+
       var options = {
           target: "#external-content",
           remote: "external.html",
@@ -39,7 +40,8 @@
       $('#dialog').modalPopover('show');
       set_popover_style();
 
-    });
+      $(this).select2('close');
+      });
   }
 
 
@@ -56,9 +58,13 @@
       $('#dialog2').modalPopover(options);
       $('#dialog2').modalPopover('show');
       set_popover_style2();
-
+      $(this).select2('close');
     });
   }
+
+  $('#the-text').on('select2:selected', function (event, data) {
+    console.log(event + " " + data);
+  });
 
   $('#dialog').on('refresh-content', function () {
     console.log('refresh called');
@@ -93,10 +99,13 @@
 
     activate_textbox();
     activate_textbox2();
+
     $('select').select2({
       tags: true,
       tokenSeparators: [',', ' ']
     });
+
+
     $('body').css('overflow-x', 'auto');
     $('body').css('overflow-y', 'auto');
 
