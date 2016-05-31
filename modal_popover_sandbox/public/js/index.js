@@ -86,13 +86,24 @@
 
   });
 
-  $('#the-text').on("bubble-selected", function(event, data) {
+  $('#the-text').on("bubble-selected", function(event, data, size) {
     console.log(data);
-    var option = $('<option>')
-    .attr('selected', 'selected')
-    .attr('value', data)
-    .text(data);
-    $('#the-text').append(option);
+    var duplicate = false;
+    $(this).find('option').each( function() {
+      if(this.text == data) {
+        console.log("match found, not adding");
+        duplicate = true;
+      }
+    });
+
+    if(! duplicate){
+      var option = $('<option>')
+      .attr('selected', 'selected')
+      .attr('value', size)
+      .text(data);
+      $('#the-text').append(option);
+    }
+
   });
 
   $(document).on('ready', function() {

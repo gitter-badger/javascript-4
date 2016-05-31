@@ -32,7 +32,7 @@
           .attr("r", function(d) { return d.r; })
           .style("fill", function(d) { return color(d.packageName); })
           .on("click", function(d) {
-            $('#the-text').trigger('bubble-selected', [d.className]);
+            $('#the-text').trigger('bubble-selected', [d.className, d.value]);
            });
 
       node.append("text")
