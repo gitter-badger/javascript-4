@@ -32,7 +32,7 @@
           .attr("r", function(d) { return d.r; })
           .style("fill", function(d) { return color(d.packageName); })
           .on("click", function(d) {
-            $('#the-text').trigger('bubble-selected', [d.className, d.value]);
+            $('#the-text').trigger('bubble-selected', [d.className, d.value, d.disabled]);
            });
 
       node.append("text")
@@ -47,7 +47,7 @@
 
       function recurse(name, node) {
         if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
-        else classes.push({packageName: name, className: node.name, value: node.size});
+        else classes.push({packageName: name, className: node.name, value: node.size, disabled: node.disabled});
       }
 
       recurse(null, root);

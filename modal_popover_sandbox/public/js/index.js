@@ -40,7 +40,8 @@
       $('#dialog').modalPopover('show');
       set_popover_style();
 
-      $(this).select2('close');
+      //uncomment the line below to disable select2 scrolldown menu
+      //$(this).select2('close');
       });
   }
 
@@ -58,7 +59,8 @@
       $('#dialog2').modalPopover(options);
       $('#dialog2').modalPopover('show');
       set_popover_style2();
-      $(this).select2('close');
+      //uncomment the line below to disable select2 scrolldown menu
+      //$(this).select2('close');
     });
   }
 
@@ -86,7 +88,7 @@
 
   });
 
-  $('#the-text').on("bubble-selected", function(event, data, size) {
+  $('#the-text').on("bubble-selected", function(event, data, size, disabled) {
     console.log(data);
     var duplicate = false;
     $(this).find('option').each( function() {
@@ -99,8 +101,12 @@
     if(! duplicate){
       var option = $('<option>')
       .attr('selected', 'selected')
-      .attr('value', size)
-      .text(data);
+      .attr('value', size);
+
+      if(disabled) {
+        option.attr("disabled", "disabled");
+      }
+      option.text(data);
       $('#the-text').append(option);
     }
 

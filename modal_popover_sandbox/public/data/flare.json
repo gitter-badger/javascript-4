@@ -7,7 +7,7 @@
     {
      "name": "cluster",
      "children": [
-      {"name": "AgglomerativeCluster", "size": 3938},
+      {"name": "AgglomerativeCluster", "size": 3938, "disabled": true},
       {"name": "CommunityStructure", "size": 3812},
       {"name": "HierarchicalCluster", "size": 6714},
       {"name": "MergeEdge", "size": 743}
@@ -350,9 +350,9 @@
        "name": "layout",
        "children": [
         {"name": "AxisLayout", "size": 6725},
-        {"name": "BundledEdgeRouter", "size": 3727},
+        {"name": "BundledEdgeRouter", "size": 3727, "disabled": true},
         {"name": "CircleLayout", "size": 9317},
-        {"name": "CirclePackingLayout", "size": 12003},
+        {"name": "CirclePackingLayout", "size": 12003, "disabled": true},
         {"name": "DendrogramLayout", "size": 4853},
         {"name": "ForceDirectedLayout", "size": 8411},
         {"name": "IcicleTreeLayout", "size": 4864},
