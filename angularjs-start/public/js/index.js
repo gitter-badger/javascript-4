@@ -4,32 +4,40 @@
     fetchData().then(bootstrapApplication);
 
     myApplication.controller("myMainController", function($scope){
-
+      $scope.ids = ["", "2"];
     });
 
     myApplication.directive('activateSelect', function() {
 
     return {
         // Restrict it to be an attribute in this case
-        restrict: 'EC',
-        // responsible for registering DOM listeners as well as updating the DOM
-        link: function(scope, element, attrs) {
-            activate_textbox();
-            activate_textbox2();
+        restrict: 'EA',
+        template: '<select class="js-basic-multiple js-states form-control" id="the-text" multiple="multiple"></select>'
+        + '<select class="js-basic-multiple js-states form-control" id="the-text2" multiple="multiple"></select>',
+        compile: function(element, attrs) {
+          return {
+              pre: function(scope, element, attrs) {
+
+              },
+              post: function(scope, element, attrs) {
+                activate_textbox();
+                activate_textbox2();
 
 
-            $('select').select2({
-              tags: true,
-              tokenSeparators: [',', ' ']
-            });
+                $('select').select2({
+                  tags: true,
+                  tokenSeparators: [',', ' ']
+                });
 
 
-            $('body').css('overflow-x', 'auto');
-            $('body').css('overflow-y', 'auto');
+                $('body').css('overflow-x', 'auto');
+                $('body').css('overflow-y', 'auto');
 
-              //uncomment the line below to disable select2 scrolldown menu
-              //$(this).select2('close');
-            } ,
+                  //uncomment the line below to disable select2 scrolldown menu
+                  //$(this).select2('close');
+              }
+          }
+        },
 
         }
     });

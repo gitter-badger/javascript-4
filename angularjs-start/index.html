@@ -14,25 +14,14 @@
 
     <div class="container-fluid">
         <div class="row" ng-controller="myMainController">
-            <div class="col-xs-2">
+            <div id='search-items' class="col-xs-2">
                   <!-- Bootstrap the existing modal-popover-sandbox -->
-                  <activate-select></activate-select>
-
-                  <select ng-click="activate_textbox" class="js-basic-multiple js-states form-control" id="the-text" multiple="multiple"></select>
-
-
-
-                  <select class="js-basic-multiple js-states form-control" id="the-text2" multiple="multiple"></select>
-
-
+                  <div activate-select></div>
             </div>
 
-            <div class="col-xs-10">
-              <div id="dialog" class="popover">
-                  <div id="external-content" class="external-popover popover-content"></div>
-              </div>
-              <div id="dialog2" class="popover">
-                  <div id="external-content2" class="external-popover popover-content"></div>
+            <div id='search-results' class="col-xs-10">
+              <div ng-repeat="id in ids" id="dialog{{id}}" class="popover">
+                <div id="external-content{{id}}" class="external-popover popover-content"></div>
               </div>
             </div>
 
