@@ -2,28 +2,16 @@
 
   //Styling of the modalPopover
 
-  var set_popover_style = function () {
-    $('#dialog').css('overflow-y', 'auto');
-    $('#dialog').css('overflow-x', 'auto');
-    $('#dialog').css('position', 'relative');
-    $('#dialog').css('border', '3px solid #8AC007');
-    $('#dialog').css('top', '0px');
-    $('#dialog').css('left', '0px');
-    $('#dialog').css('max-width', '1000px');
-    $('#dialog').css('max-height', '90%');
+  var set_popover_style = function (dialog) {
+    $(dialog).css('overflow-y', 'auto');
+    $(dialog).css('overflow-x', 'auto');
+    $(dialog).css('position', 'relative');
+    $(dialog).css('border', '3px solid #8AC007');
+    $(dialog).css('top', '0px');
+    $(dialog).css('left', '0px');
+    $(dialog).css('max-width', '1000px');
+    $(dialog).css('max-height', '90%');
   }
-
-  var set_popover_style2 = function () {
-    $('#dialog2').css('overflow-y', 'auto');
-    $('#dialog2').css('overflow-x', 'auto');
-    $('#dialog2').css('position', 'relative');
-    $('#dialog2').css('border', '3px solid #8AC007');
-    $('#dialog2').css('top', '0px');
-    $('#dialog2').css('left', '0px');
-    $('#dialog2').css('max-width', '1000px');
-    $('#dialog2').css('max-height', '90%');
-  }
-
 
   var activate_textbox = function () {
     $('#the-text').on('select2:open', function () {
@@ -38,7 +26,7 @@
       };
       $('#dialog').modalPopover(options);
       $('#dialog').modalPopover('show');
-      set_popover_style();
+      set_popover_style('#dialog');
 
       //uncomment the line below to disable select2 scrolldown menu
       //$(this).select2('close');
@@ -58,23 +46,22 @@
       };
       $('#dialog2').modalPopover(options);
       $('#dialog2').modalPopover('show');
-      set_popover_style2();
+      set_popover_style('#dialog2');
       //uncomment the line below to disable select2 scrolldown menu
       //$(this).select2('close');
     });
   }
 
-  $('#the-text').on('select2:selected', function (event, data) {
-    console.log(event + " " + data);
-  });
+  // $('#the-text').on('select2:selected', function (event, data) {
+  //   console.log(event + " " + data);
+  // });
 
   $('#dialog').on('refresh-content', function () {
     console.log('refresh called');
     $('#dialog').modalPopover('hide');
 
     $('#dialog').modalPopover('show');
-    set_popover_style();
-    // $('#external-content').css('max-width', 'auto');
+    set_popover_style('#dialog');
 
   });
 
@@ -83,8 +70,7 @@
     $('#dialog2').modalPopover('hide');
 
     $('#dialog2').modalPopover('show');
-    set_popover_style();
-    // $('#external-content').css('max-width', 'auto');
+    set_popover_style('#dialog2');
 
   });
 
@@ -113,9 +99,9 @@
   });
 
   $(document).on('ready', function() {
-
     activate_textbox();
     activate_textbox2();
+
 
     $('select').select2({
       tags: true,

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <style>
+            #map {
+            height: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="map"></p>
+        <script src="public/bower_components/d3/d3.min.js"></script>
+        <script src="public/bower_components/leaflet/leaflet.js"></script>
+        <script src="public/data/us-states.js"></script>
+        <script>
+
+            var mapboxAccessToken =
+              "pk.eyJ1IjoiYWtzaW5naGRjZSIsImEiOiJjaW91d2UyaXYwMHVmdGhtNGx3cnV3cTVyIn0.6t16sPIKipeCCeV0hfegew";
+            // var map = new L.Map("map", {center: [37.8, -96.9], zoom: 4})
+            // initialize the map on the "map" div with a given center and zoom
+var map = L.map('map', {
+    center: [37.8, -96],
+    zoom: 8
+});
+            // .addLayer(new L.TileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' +
+            // mapboxAccessToken));
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mapboxAccessToken,
+            {
+              id: 'mapbox.light',
+              attribution:  '&copy; <a href="https://liberaldart.com">LiberalDart</a> contributors'
+            }).addTo(map);
+
+
+            L.geoJson(statesData).addTo(map);
+
+            var svg = d3.select(map.getPanes().overlayPane).append("svg"),
+            g = svg.append("g").attr("class", "leaflet-zoom-hide");
+
+            d3.json("public/data/us-states.js", function(error, collection) {
+            if (error) throw error;
+
+            var transform = d3.geo.transform({point: projectPoint}),
+            path = d3.geo.path().projection(transform);
+
+            var feature = g.selectAll("path")
+            .data(collection.features)
+            .enter().append("path");
+
+            map.on("viewreset", reset);
+            reset();
+
+            // Reposition the SVG to cover the features.
+            function reset() {
+            var bounds = path.bounds(collection),
+            topLeft = bounds[0],
+            bottomRight = bounds[1];
+
+            svg .attr("width", bottomRight[0] - topLeft[0])
+            .attr("height", bottomRight[1] - topLeft[1])
+            .style("left", topLeft[0] + "px")
+            .style("top", topLeft[1] + "px");
+
+            g   .attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+
+            feature.attr("d", path);
+            }
+
+            // Use Leaflet to implement a D3 geometric transformation.
+            function projectPoint(x, y) {
+            var point = map.latLngToLayerPoint(new L.LatLng(y, x));
+            this.stream.point(point.x, point.y);
+            }
+            });
+
+
+            // var mapboxAccessToken =
+            // "pk.eyJ1IjoiYWtzaW5naGRjZSIsImEiOiJjaW91d2UyaXYwMHVmdGhtNGx3cnV3cTVyIn0.6t16sPIKipeCCeV0hfegew";
+            //
+            // var map = L.map('map').setView([37.8, -96], 4);
+            //
+            // L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mapboxAccessToken, {
+            //   id: 'mapbox.light',
+            //   attribution: ...
+            // }).addTo(map);
+
+
+        </script>
+    </body>
+</html>
