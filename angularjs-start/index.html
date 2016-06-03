@@ -13,7 +13,8 @@
 <body>
 
     <div class="container-fluid">
-        <div class="row" ng-app="myApplication" ng-controller="myMainController">
+      <!-- no need to ng-app because I am manually bootstrapping in index.js -->
+        <div class="row" ng-controller="myMainController">
             <div id='search-items' class="col-xs-2">
                   <!-- Bootstrap the existing modal-popover-sandbox -->
                   <div activate-select></div>
