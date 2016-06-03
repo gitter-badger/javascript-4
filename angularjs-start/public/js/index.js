@@ -30,16 +30,18 @@
         return {
             // Restrict it to be an attribute in this case
             restrict: 'EA',
-            template: '<select class="js-basic-multiple js-states form-control" id="the-text" multiple="multiple"></select>' +
-                '<select class="js-basic-multiple js-states form-control" id="the-text2" multiple="multiple"></select>',
+            // template: '<select class="js-basic-multiple js-states form-control" id="the-text" multiple="multiple"></select>' +
+            //     '<select class="js-basic-multiple js-states form-control" id="the-text2" multiple="multiple"></select>',
             compile: function(element, attrs) {
                 return {
                     pre: function(scope, element, attrs) {
 
                     },
                     post: function(scope, element, attrs) {
-                      console.log(scope.content);
-                      console.log(scope.ids);
+
+                      create_elements_with(element, scope.content);
+                      // console.log(scope.content);
+                      // console.log(scope.ids);
                         activate_textbox();
                         activate_textbox2();
 
@@ -103,6 +105,16 @@
 
         }
     });
+
+    function create_elements_with(element, data) {
+      //console.log(data.searchFields.length);
+      if (data.searchFields[0].type == "select2") {
+        console.log("data is select2");
+        $('<select class="js-basic-multiple js-states form-control" id="the-text" multiple="multiple"></select>')
+        .appendTo(element);
+        console.log("done");
+      }
+    }
 
     function fetchData() {
         var initInjector = angular.injector(["ng"]);

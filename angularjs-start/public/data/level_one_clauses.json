@@ -1,6 +1,14 @@
 {
-	"type": "select2",
-	"displayName": "top",
-	"dataDisplayPath": "public/data/flare.json",
-	"searchPath": "unknown"
+	"searchFields": [{
+		"type": "select2",
+		"displayName": "top",
+		"dataDisplayPath": "public/data/flare.json",
+		"searchPath": "unknown"
+	},
+  {
+    "type": "date",
+    "displayName": "start_from",
+    "dataDisplayPath": "public/data/dates.json",
+    "searchPath": "unknown"
+  }]
 }

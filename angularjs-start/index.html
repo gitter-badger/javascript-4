@@ -15,12 +15,8 @@
     <div class="container-fluid">
       <!-- no need to ng-app because I am manually bootstrapping in index.js -->
         <div class="row" ng-controller="myMainController">
-            <div id='search-items' class="col-xs-2">
+            <div id='search-items' class="col-xs-2" activate-select>
                   <!-- Bootstrap the existing modal-popover-sandbox -->
-                  <div activate-select></div>
-                  <div>
-                    {{content}}
-                  </div>
             </div>
 
             <div id='search-results' class="col-xs-10">
