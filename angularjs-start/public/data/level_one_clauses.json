@@ -1,0 +1,6 @@
+{
+	"type": "select2",
+	"displayName": "top",
+	"dataDisplayPath": "public/data/flare.json",
+	"searchPath": "unknown"
+}

@@ -2,8 +2,16 @@
     var myApplication = angular.module("myApplication", []);
 
 
-    myApplication.controller("myMainController", function($scope){
+    myApplication.controller("myMainController", function($scope, $http){
       $scope.ids = ["", "2"];
+      $http.get("public/data/level_one_clauses.json")
+      .then(function(response) {
+        //First function handles success
+        $scope.content = response.data;
+    }, function(response) {
+        //Second function handles error
+        $scope.content = "Something went wrong";
+    });
     });
 
     myApplication.directive('activateSelect', function() {
