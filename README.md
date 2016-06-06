@@ -1,4 +1,6 @@
 # javascript
+
+[![Join the chat at https://gitter.im/liberaldart/javascript](https://badges.gitter.im/liberaldart/javascript.svg)](https://gitter.im/liberaldart/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A bunch of code that I have been writing while practicing JavaScript
 
 1.Cloned example from : https://github.com/scruffles/BootstrapModalPopover.git: into:modal_popover_sandbox
